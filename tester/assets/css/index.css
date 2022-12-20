@@ -1,0 +1,18 @@
+@import '@discordapp/fonts/config/fonts/generated/Fonts.module.css';
+
+:root {
+  --brand: #5865f2;
+  --brand-dark: #4957f1;
+  --grey-1: #99aab5;
+  --grey-3: #737f8d;
+  --grey-6: #4f545c;
+  --guilds-grey: #1e2124;
+  --status-grey: #604f56;
+  --status-green: #3ba53b;
+}
+
+body {
+  font-family: gg sans, sans-serif;
+  background-color: transparent;
+  margin: 0;
+}

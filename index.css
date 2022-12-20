@@ -1,0 +1,342 @@
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Hachi+Maru+Pop&family=Noto+Sans+JP:wght@400;900&family=Reggae+One&family=Stick&family=Yusei+Magic&display=swap');
+
+:root {
+  --bgcolor: #f7f7e8;
+  --txtcolor: #557174;
+  --input-bgcolor: #c7cfb7;
+  --input-txtcolor: #557174;
+  --submit-bgcolor: #9dad7f;
+  --submit-txtcolor: #f7f7e8;
+  --placeholder-color: #f7f7e8;
+  --error-bgcolor: #ee9595;
+  --error-txtcolor: #f7f7e8;
+
+  --black: #3E464D;
+  --black-d: #1D1E25;
+  --blue: #204399;
+  --blue-d: #1D2B6D;
+  --brown: #6E4820;
+  --brown-d: #5C2514;
+  --cyan: #76C6BB;
+  --cyan-d: #29A0B4;
+  --green: #1C7B3A;
+  --green-d: #034B2D;
+  --lime: #71BB41;
+  --lime-d: #209F41;
+  --orange: #E57918;
+  --orange-d: #AB3E23;
+  --pink: #CC599C;
+  --pink-d: #943990;
+  --purple: #5A3C94;
+  --purple-d: #34286A;
+  --red: #BA1B21;
+  --red-d: #741837;
+  --white: #D5DFEF;
+  --white-d: #8090B9;
+  --yellow: #EBEA60;
+  --yellow-d: #BC8424;
+  --tan: #9E9888;
+  --tan-d: #50403D;
+  --coral: #E07173;
+  --coral-d: #AB415E;
+  --banana: #F8F6BD;
+  --banana-d: #CDB886;
+  --rose: #F8D3E3;
+  --rose-d: #D48DAC;
+  --gray: #8094A3;
+  --gray-d: #445462;
+  --maroon: #692A3B;
+  --maroon-d: #400D19;
+}
+
+body {
+	margin: 0;
+	background: var(--bgcolor);
+	color: var(--txtcolor);
+	font-size: 12pt;
+}
+
+.cl {
+  clear: both;
+}
+.icon {
+	width: 13pt;
+	height: 13pt;
+	vertical-align: middle;
+}
+
+
+/* フォーム */
+input, textarea, button, select {
+  width: calc(100% - 3rem);
+  max-width: 100%;
+  border: 2px solid var(--bgcolor);
+  margin: 0.5rem 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  background: var(--input-bgcolor);
+  color: var(--input-txtcolor);
+}
+button {
+  background: var(--submit-bgcolor);
+  color: var(--submit-txtcolor);
+  width: auto;
+}
+select {
+  width: calc(81%);
+}
+textarea {
+  width: 90%;
+  height: 10rem;
+}
+.mini {
+  width: 35%;
+}
+
+::placeholder {
+  color: var(--placeholder-color);
+}
+option:focus {
+  background: var(--txtcolor);
+  color: var(--bgcolor);
+}
+input[type="text"]:focus {
+  border: 2px solid var(--submit-bgcolor);
+  outline: 0;
+}
+button:focus {
+  background: var(--txtcolor);
+  border: 2px solid var(--txtcolor);
+  outline: 0;
+}
+.error {
+  background: var(--error-bgcolor);
+}
+
+
+/* ブロック */
+#container {
+	width: 80%;
+	max-width: 900px;
+	margin: 0 auto;
+  overflow-x: hidden;
+}
+
+.title-container {
+  position: relative;
+  background: var(--input-bgcolor);
+  color: #FFF;
+  padding: 10px;
+  text-align: right;
+  font-weight: bold;
+}
+.form-container {
+  position: relative;
+  background: var(--bgcolor);
+  padding: 30px;
+  border-width: 0 2px 2px 2px;
+  border-style: solid;
+  border-color: var(--input-bgcolor);
+}
+.form-container:after {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  content: '';
+  border-width: 10px 10px 0;
+  border-style: solid;
+  border-color: var(--bgcolor) transparent transparent;
+  z-index: 1;
+}
+
+.color-form {
+  position: relative;
+  background: var(--input-bgcolor);
+  padding: 30px;
+  text-align: right;
+}
+.color-form:after {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  content: '';
+  border-width: 10px 10px 0;
+  border-style: solid;
+  border-color: var(--input-bgcolor) transparent transparent;
+}
+
+.css-output-container {
+  text-align: right;
+  background: var(--txtcolor);
+  color: var(--bgcolor);
+  padding: 30px 30px 10px 30px;
+  border-width: 0 0 2px 0;
+  border-style: solid;
+  border-color: var(--input-bgcolor);
+}
+.reference-container {
+  position: relative;
+  background: var(--input-bgcolor);
+  padding: 20px;
+  font-size: 10pt;
+}
+.reference-container a {
+  color: var(--txtcolor);
+}
+h3 {
+  font-size: 10pt;
+  margin: 0 0 0 -10px;
+}
+.footer {
+  text-align: right;
+  margin: 5px;
+  font-size: 10pt;
+}
+
+.css-input-container {
+  text-align: right;
+  background: var(--txtcolor);
+  color: var(--bgcolor);
+  padding: 30px 30px 10px 30px;
+  border-width: 0;
+  position: relative;
+}
+.css-input-container:after {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  content: '';
+  border-width: 10px 10px 0;
+  border-style: solid;
+  border-color: var(--txtcolor) transparent transparent;
+  z-index: 1;
+}
+
+
+/* 入力エリア */
+.info-discordid {
+  position: relative;
+  font-size: 10pt;
+  background: #FFF;
+  border-radius: 0.5rem;
+  margin: 0 20px 2px 100px;
+  padding: 10px;
+  border: solid 1px var(--txtcolor);
+}
+.info-discordid:before {
+  position: absolute;
+  bottom: calc(100% + 1px);
+  left: 50%;
+  width: 0;
+  height: 0;
+  content: '';
+  border-width: 0 5px 5px;
+  border-style: solid;
+  border-color: transparent transparent var(--txtcolor);
+}
+.info-discordid:after {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  content: '';
+  border-width: 0 5px 5px;
+  border-style: solid;
+  border-color: transparent transparent #FFF;
+}
+
+
+/* 色選択エリア */
+.color-form button, .color-form select {
+  border: 2px solid var(--input-bgcolor);
+}
+.color-form select {
+  width: 30.6%;
+  color: var(--bgcolor)
+}
+#discord-id-blue {
+  background: var(--blue);
+}
+#discord-id-purple {
+  background: var(--purple);
+}
+#discord-id-red {
+  background: var(--red);
+}
+#discord-id-pink {
+  background: var(--pink);
+}
+#discord-id-orange {
+  background: var(--orange);
+}
+#discord-id-yellow {
+  background: var(--yellow);
+  color: var(--txtcolor);
+}
+#discord-id-lime {
+  background: var(--lime);
+  color: var(--txtcolor);
+}
+#discord-id-green {
+  background: var(--green);
+}
+#discord-id-cyan {
+  background: var(--cyan);
+  color: var(--txtcolor);
+}
+#discord-id-white {
+  background: var(--white);
+  color: var(--txtcolor);
+}
+#discord-id-black {
+  background: var(--black);
+}
+#discord-id-brown {
+  background: var(--brown);
+}
+#discord-id-tan {
+  background: var(--tan);
+}
+#discord-id-coral {
+  background: var(--coral);
+}
+#discord-id-banana {
+  background: var(--banana);
+  color: var(--txtcolor);
+}
+#discord-id-rose {
+  background: var(--rose);
+  color: var(--txtcolor);
+}
+#discord-id-gray {
+  background: var(--gray);
+}
+#discord-id-maroon {
+  background: var(--maroon);
+}
+.color-form select {
+  background: var(--submit-bgcolor);
+  color: var(--submit-txtcolor);
+}
+
+/* CSS生成エリア */
+.info {
+  font-size: 10.5pt;
+  text-align: left;
+  padding: 0 3em;
+}
+.info a {
+  color: var(--input-bgcolor);
+}
+
+.info a[target="_blank"]:after, .reference-container a[target="_blank"]:after{
+  content:url('./img/target8.png');
+  margin:0px 5px;
+}

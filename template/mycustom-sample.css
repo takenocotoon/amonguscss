@@ -1,0 +1,205 @@
+/* サンプルCSSです。
+    ご自由にご利用頂いて構いません。
+    横並び / 喋ると明るくなってポップしてぴょこぴょこする
+    名前をアイコンに重ねる / 名前とアイコンをクルーメイトの色で縁取り  */
+
+    :root {
+      --avatar-width: 80px; /* アイコンの横幅 */
+      --avatar-radius: 50%; /* アイコンの角を丸める。50%で円。0%で四角 */
+      --color: black; /* 未指定時のデフォルトカラー */
+    }
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: rgba(0, 0, 0, 0);
+      margin: 0 auto;
+      padding: 0;
+      overflow: hidden;
+    }
+    
+    ul[class*='Voice_voiceStates_'] * {
+      display: inline-block;
+      position: relative;
+      top: 0;
+      left: 0;
+    }
+    
+    ul[class*='Voice_voiceStates_'] {
+      padding-left: 0;
+      margin: 0 20px 0 0;
+      white-space: nowrap;
+      display: flex;
+      justify-content: space-around;
+    }
+    
+    li[class*='Voice_voiceState_'] {
+      height: calc(var(--avatar-width) + 30px);
+      width: calc(var(--avatar-width) / 2);
+      margin: 50px 0 0 0;
+      white-space: normal;
+    }
+    
+    li[class*='Voice_voiceState_']:nth-child(odd) .avatar {
+      z-index: 1;
+    }
+    li[class*='Voice_voiceState_']:nth-child(even) .avatar {
+      z-index: 2;
+    }
+    
+    img[class*='Voice_avatar_'] {
+      position: relative;
+      height: var(--avatar-width) !important;
+      width: var(--avatar-width) !important;
+      left: calc(50% - var(--avatar-width) / 2);
+      filter: brightness(60%);
+      background: var(--color);
+      border-radius: var(--avatar-radius) !important;
+    }
+    div[class*='Voice_user_'] {
+      top: -30px;
+      left: calc(-100% - var(--avatar-width) - 110px);
+      background: rgba(0,0,0,0);
+      padding: 4px 5px 0px !important;
+    }
+    span[class*='Voice_name_'] {
+      z-index: 100;
+      width: 500px;
+      height: 20px;
+      line-height: 18px !important;
+      font-size: 18px !important;
+      white-space: nowrap;
+      text-overflow: clip;
+      text-align: center;
+      background-color: rgba(0,0,0,0) !important;
+      padding: 0 !important;
+      text-shadow:
+        var(--color) 2px 0px,  var(--color) -2px 0px,
+        var(--color) 0px -2px, var(--color) 0px 2px,
+        var(--color) 2px 2px , var(--color) -2px 2px,
+        var(--color) 2px -2px, var(--color) -2px -2px,
+        var(--color) 1px 2px,  var(--color) -1px 2px,
+        var(--color) 1px -2px, var(--color) -1px -2px,
+        var(--color) 2px 1px,  var(--color) -2px 1px,
+        var(--color) 2px -1px, var(--color) -2px -1px;
+    }
+    img[class*='Voice_avatarSpeaking_'] {
+      border-color: rgba(0,0,0,0) !important;
+      animation: popping 0.3s forwards, speaking 0.2s linear 0.3s infinite alternate both;
+      filter: brightness(100%);
+    }
+    @keyframes popping {
+      0% { margin: 0; }
+      50% { margin: -20px 0 0 0; }
+      100% { margin: -10px 0 0 0; }
+    }
+    @keyframes speaking {
+      0% { top: -10px; }
+      100% { top: -20px; }
+    }
+    li[class*='Voice_voiceState_']:nth-child(odd) img[class*='Voice_avatarSpeaking_'] {
+      z-index: 6;
+    }
+    li[class*='Voice_voiceState_']:nth-child(even) img[class*='Voice_avatarSpeaking_'] {
+      z-index: 7;
+    }
+    
+    
+    /* 青色さん */
+    img[src*="/*blueID*/"], img[src*="/*blueID*/"]+div[class*="Voice_user_"] {
+      --color: blue;
+    }
+    
+    /* 紫さん */
+    img[src*="/*purpleID*/"], img[src*="/*purpleID*/"]+div[class*="Voice_user_"] {
+      --color: purple;
+    }
+    
+    /* 赤色さん */
+    img[src*="/*redID*/"], img[src*="/*redID*/"]+div[class*="Voice_user_"] {
+      --color: red;
+    }
+    
+    /* 桃色さん */
+    img[src*="/*pinkID*/"], img[src*="/*pinkID*/"]+div[class*="Voice_user_"] {
+      color: black !important;
+      --color: hotpink;
+    }
+    
+    /* オレンジさん */
+    img[src*="/*orangeID*/"], img[src*="/*orangeID*/"]+div[class*="Voice_user_"] {
+      --color: orange;
+    }
+    
+    /* 黄色さん */
+    img[src*="/*yellowID*/"], img[src*="/*yellowID*/"]+div[class*="Voice_user_"] {
+      --color: yellow;
+      color: black !important;
+    }
+    
+    /* 黄緑さん */
+    img[src*="/*limeID*/"], img[src*="/*limeID*/"]+div[class*="Voice_user_"] {
+      --color: lime;
+      color: black !important;
+    }
+    
+    /* 緑色さん */
+    img[src*="/*GreenID*/"], img[src*="/*GreenID*/"]+div[class*="Voice_user_"] {
+      --color: green;
+    }
+    
+    /* 水色さん */
+    img[src*="/*cyanID*/"], img[src*="/*cyanID*/"]+div[class*="Voice_user_"] {
+      --color: cyan;
+      color: black !important;
+    }
+    
+    /* 白色さん */
+    img[src*="/*whiteID*/"], img[src*="/*whiteID*/"]+div[class*="Voice_user_"] {
+      --color: white;
+      color: black !important;
+    }
+    
+    /* 黒色さん */
+    img[src*="/*blackID*/"], img[src*="/*blackID*/"]+div[class*="Voice_user_"] {
+      --color: black;
+    }
+    
+    /* 茶色さん */
+    img[src*="/*brownID*/"], img[src*="/*brownID*/"]+div[class*="Voice_user_"] {
+      --color: brown;
+    }
+    
+    /* 黄褐色さん */
+    img[src*="/*tanID*/"], img[src*="/*tanID*/"]+div[class*="Voice_user_"] {
+      --color: tan;
+    }
+    
+    /* 珊瑚色さん */
+    img[src*="/*coralID*/"], img[src*="/*coralID*/"]+div[class*="Voice_user_"] {
+      --color: coral;
+    }
+    
+    /* バナナ色さん */
+    img[src*="/*bananaID*/"], img[src*="/*bananaID*/"]+div[class*="Voice_user_"] {
+      --color: #F8F6BD;
+      color: black !important;
+    }
+    
+    /* バラ色さん */
+    img[src*="/*roseID*/"], img[src*="/*roseID*/"]+div[class*="Voice_user_"] {
+      --color: #F8D3E3;
+      color: black !important;
+    }
+    
+    /* 灰色さん */
+    img[src*="/*grayID*/"], img[src*="/*grayID*/"]+div[class*="Voice_user_"] {
+      --color: gray;
+    }
+    
+    /* 小豆色さん */
+    img[src*="/*maroonID*/"], img[src*="/*maroonID*/"]+div[class*="Voice_user_"] {
+      --color: maroon;
+    }
+    

@@ -1,0 +1,28 @@
+{
+  "name": "Discord StreamKit Overlay Among us用ぴょこぴょこカスタムCSSジェネレーター",
+  "short_name": "あまがすぴょこぴょこCSS",
+  "icons": [{
+      "src": "./icon.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    }, {
+      "src": "icon.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }, {
+      "src": "icon.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    }, {
+      "src": "icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }, {
+      "src": "icon.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    }],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "any"
+}
