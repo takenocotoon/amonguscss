@@ -7,11 +7,11 @@
   <meta name="og:title" content="あまがすぴょこぴょこCSSジェネレーター">
   <meta name="description"    content="Discord StreamKit Overlay Among us用ぴょこぴょこカスタムCSSジェネレーター">
   <meta name="og:description" content="Discord StreamKit Overlay Among us用ぴょこぴょこカスタムCSSジェネレーター">
-  <meta name="og:image" content="http://takenocoon.starfree.jp/amonguscss/icon.png">
+  <meta name="og:image" content="https://takenocotoon.github.io/amonguscss/icon.png">
   <meta property="og:locale" content="ja_JP">
   <meta property="og:type" content="website">
-  <link rel="canonical"      href="http://takenocoon.starfree.jp/amonguscss/">
-  <meta property="og:url" content="http://takenocoon.starfree.jp/amonguscss/">
+  <link rel="canonical"      href="https://takenocotoon.github.io/amonguscss/">
+  <meta property="og:url" content="https://takenocotoon.github.io/amonguscss/">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@takenocotoon">
   <meta name="theme-color" content="#9dad7f">
@@ -19,7 +19,7 @@
   <link rel="apple-touch-icon"      href="icon.png">
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="./index.css?202106251800">
-  <script type="text/javascript" src="./js/js.cookie-2.2.1.min.js"></script>
+  <!-- <script type="text/javascript" src="./js/js.cookie-2.2.1.min.js"></script> -->
   <script type="text/javascript" src="./js/discordamongusgen-ids.js?202212192100"></script>
   <script type="text/javascript" src="./js/discordamongusgen-pyococss.js?202212192100"></script>
 </head>
@@ -32,7 +32,7 @@
   <input id="discord-name" type="text" placeholder="Discord Name" class="mini">
   <input id="discord-id" type="text" placeholder="Discord ID" class="mini">
   <button id="set-discord-id" onclick="setDiscordID()">登録</button><br class="cl">
-  <div class="info-discordid">17-19桁の数字。Discordのユーザー設定→テーマ→開発者モードを有効→ユーザーを右クリック→IDをコピー。</div>
+  <div class="info-discordid">17-19桁の数字。Discordのユーザー設定→詳細設定→開発者モードを有効→ユーザーを右クリック→IDをコピー。</div>
   <select id="discord-id-cl">
     <option>登録を消す</option>
   </select>
@@ -152,6 +152,23 @@
   <input type="text" id="test-url-output"><br>
   <button id="copy-testuri" onclick="copyTestUri()">Copy URL</button><br class="cl">
 </div>
+<div class="css-output-container">
+  <div class="info">
+    バックアップのリストア<br>
+    旧ジェネレーターで生成したバックアップを読み込みます。<br>
+    <span id="backup_message"></span>
+  </div>
+  <input type="text" id="input_backup"><br>
+  <button onclick="restore()">Restore</button><br class="cl">
+</div>
+<!-- <div class="css-output-container">
+  <div class="info">
+    バックアップ作成<br>
+    <span id="backupGen_message"></span>
+  </div>
+  <button onclick="backup()">Backup</button><br class="cl">
+  <input type="text" id="output_backup"><br>
+</div> -->
 <div class="reference-container">
   <p>
     配信などご自由にお使い下さい。常識的な範囲であれば編集改変OKです。報告やクレジット表記なども特に必要ないです。<br>

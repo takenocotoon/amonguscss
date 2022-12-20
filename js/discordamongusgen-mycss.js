@@ -38,7 +38,8 @@ function generateCSS() {
   textarea.select();
   textarea.setSelectionRange(0, 999999);
   document.execCommand('copy');
-  Cookies.set('colors', colors, { expires: 365});
+  // Cookies.set('colors', colors, { expires: 365});
+  localStorage.setItem('amonguscss', JSON.stringify({'discordIDs':discordIDs, 'colors':colors, 'avatarWidthCookie':avatarWidthCookie, 'nameFontCookie':nameFontCookie}));
 }
 
 function generateTestUri() {
@@ -60,7 +61,7 @@ function generateTestUri() {
 
   let query = []
   for (let i = 0; i < sortNames.length; i++) { query.push('id' + i + '=' + sortNames[i]['id'] + '&nm' + i + '=' + encodeURI(sortNames[i]['name'])) }
-  let uri = 'http://takenocoon.starfree.jp/amonguscss/tester/?' + query.join('&')
+  let uri = 'https://takenocotoon.github.io/amonguscss/tester/?' + query.join('&')
 
   let input_area = document.getElementById('test-url-output');
   input_area.value = uri;
