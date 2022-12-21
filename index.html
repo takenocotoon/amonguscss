@@ -20,7 +20,7 @@
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="./index.css?202106251800">
   <!-- <script type="text/javascript" src="./js/js.cookie-2.2.1.min.js"></script> -->
-  <script type="text/javascript" src="./js/discordamongusgen-ids.js?202212192100"></script>
+  <script type="text/javascript" src="./js/discordamongusgen-ids.js?202212202100"></script>
   <script type="text/javascript" src="./js/discordamongusgen-pyococss.js?202212192100"></script>
 </head>
 <body>
@@ -95,19 +95,42 @@
     <option value="000000000000000000">Maroon</option>
   </select>
   </div><br class="cl">
-  <select id="avatar-width">
-    <option>並び方</option>
-    <option value="10">1920pxに10人</option>
-    <option value="15">1920pxに15人</option>
-    <!-- <option value="flex">横幅に合わせて可変</option> -->
+  <select id="name_y">
+    <option value="">名前の位置</option>
+    <option value="none">文字なし</option>
+    <option value="crew">クルーの目元</option>
+    <option value="crew-odd">クルーの目元 奇数ずらす</option>
+    <option value="icon">アイコン（クルーの足元）</option>
+    <option value="icon-odd">アイコン（クルーの足元） 奇数ずらす</option>
   </select>
-  <select id="namefont">
-    <option>フォント</option>
+  <select id="name_size">
+    <option value="">名前の大きさ</option>
+    <option value="25px">デフォルト</option>
+    <option value="12px">極小</option>
+    <option value="20px">小さめ</option>
+    <option value="30px">大きめ</option>
+  </select>
+  <select id="name_font">
+    <option value="">フォント</option>
     <option value="Noto Sans JP">Noto Sans JP (すっきり)</option>
     <option value="Yusei Magic">Yusei Magic (油性ペン)</option>
     <option value="Hachi Maru Pop">Hachi Maru Pop (女の子)</option>
     <option value="DotGothic16">DotGothic16 (ゲーム風ドット)</option>
-    <option value="none">文字なし</option>
+  </select>
+  <select id="alignment">
+    <option value="">並び方</option>
+    <option value="flex">横幅いっぱいに等間隔</option>
+    <option value="left-wide">間隔広め左詰め</option>
+    <option value="left-narrow">間隔狭め左詰め</option>
+    <option value="right-wide">間隔広め右詰め</option>
+    <option value="right-narrow">間隔狭め右詰め</option>
+    <option value="center-wide">間隔広め中央</option>
+    <option value="center-narrow">間隔狭め中央</option>
+  </select>
+  <select id="display_icon">
+    <option value="">アイコン</option>
+    <option value="off">表示しない</option>
+    <option value="on" >表示する</option>
   </select>
   <!-- <select id="discord-id-none">
     <option value="000000000000000000">非表示にするID</option>
@@ -124,8 +147,8 @@
 </div>
 <div class="css-output-container">
   <div class="info">クルーぴょこぴょこ Discord StreamKit Overlay (<a href="https://streamkit.discordapp.com/overlay" target="_blank" rel="noopener">https://streamkit.discordapp.com/overlay</a>)<br>
-  下にはみ出す感じで、名前が見えるギリギリまで画面下にさげると良い感じにぴょこぴょこします。<br>
-  <a href="https://twitter.com/takenocotoon/status/1353368888000409603" target="_blank" rel="noopener">サンプル</a></div>
+  横1920px 縦600pxで作成し、画面下にぴったりくっつけて使うと良い感じにぴょこぴょこします。<br>
+    <a href="https://twitter.com/takenocotoon/status/1353368888000409603" target="_blank" rel="noopener">サンプル</a></div>
   <textarea id="css-output"></textarea>
   <button id="copy-css" onclick="copyCSS()">Copy CSS</button><br class="cl">
 </div>
@@ -151,6 +174,11 @@
   </div>
   <input type="text" id="test-url-output"><br>
   <button id="copy-testuri" onclick="copyTestUri()">Copy URL</button><br class="cl">
+</div>
+<div class="css-output-container">
+  <div class="info">
+  </div>
+  <object id="css_sample_area" data="./tester/sample.html" type="text/html"></object><br class="cl">
 </div>
 <div class="css-output-container">
   <div class="info">
@@ -185,7 +213,7 @@
   </p></a>
   <p>
     <h3>○お布施を送る</h3>
-    <a href="https://ofuse.me/takenocotoon" target="_blank">ofuse ( https://ofuse.me/takenocotoon )</a>
+    <a href="https://ofuse.me/takenocotoon" target="_blank" rel="noopener">ofuse ( https://ofuse.me/takenocotoon )</a>
   </p>
   <!-- <p>
     <h3><a href="http://takenocoon.starfree.jp/discordsktester/">○Discord StreamKit Overlay テスター</a></h3>
@@ -211,7 +239,7 @@
     <a href="https://gungeespla.github.io/obs_discord_sample/">Discord StreamKit Overlay Sample</a>
   </p>
 </div>
-<div class="footer"><img src="./img/twitter.svg?=1" width="12" height="12" class="icon">@takenocotoon <a href="https://twitter.com/i/events/1406149882310627333" target="_blank" rel="noopener">■</a></div>
+<div class="footer"><a href="https://github.com/takenocotoon/amonguscss/blob/main/README.md"><img src="./img/github.svg" width="12" height="12" class="icon"></a><a href="https://twitter.com/i/events/1406149882310627333" target="_blank" rel="noopener"><img src="./img/twitter.svg?=1" width="12" height="12" class="icon"></a>@takenocotoon</div>
 </div>
 </body>
 </html>

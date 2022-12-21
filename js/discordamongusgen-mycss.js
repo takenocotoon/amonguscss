@@ -1,51 +1,61 @@
 "use strict";
-let myCSS = localStorage.getItem('myCSS') || "";
-const avatarMargin10 = '189px';
-const avatarMargin15 = '120px';
+let myCSS = localStorage.getItem('amonguscss-myCSS') || "";
 
 function setSelects() {
   generateCSS();
-  generateTestUri();
+  // generateTestUri();
   let position = document.getElementById('css-output').getBoundingClientRect();
 	window.scrollTo( 0, position.top);
 }
 
-function generateCSS() {
+function setLocalStorage() {
   colorids = [];
   for (let k in colors) {
-    // if (k=='none') continue;
-    let val = document.getElementById('discord-id-'+k).value;
-    if ( val != '' && val != '000000000000000000') {
-      if (colorids.includes(val)) {
-        alert('同じ人が複数指定されてるよ！');
-        return;
-      } else {
-        colorids.push(val);
+      let val = document.getElementById('discord-id-' + k).value;
+      if (val != '' && val != '000000000000000000') {
+          if (colorids.includes(val)) {
+              alert('同じ人が複数指定されてるよ！');
+              return;
+          } else {
+              colorids.push(val);
+          }
       }
-    }
   }
+  for (let k in colors) {
+      colors[k] = document.getElementById('discord-id-' + k).value || '000000000000000000';
+  }
+  save['colors'] = colors;
+
+  localStorage.setItem('amonguscss', JSON.stringify(save));
+}
+
+function generateCSS() {
+
+  setLocalStorage();
 	let data = document.getElementById('css-input').value;
   data.replace(/\&/g, '&amp;').replace(/\</g, '&lt;').replace(/\>/g, '&gt;').replace(/\"/g, '&quot;').replace(/\'/g, '&#x27');
-  localStorage.setItem('myCSS', data);
+  localStorage.setItem('amonguscss-myCSS', data);
 
   for (let k in colors) {
     // if (k=='none') continue;
     colors[k] = document.getElementById('discord-id-'+k).value || '000000000000000000';
     data = data.split('/*'+k+'ID*/').join(colors[k])
   }
+  save['colors'] = colors;
   let textarea = document.getElementById('css-output');
   textarea.innerHTML = data;
   textarea.select();
   textarea.setSelectionRange(0, 999999);
   document.execCommand('copy');
   // Cookies.set('colors', colors, { expires: 365});
-  localStorage.setItem('amonguscss', JSON.stringify({'discordIDs':discordIDs, 'colors':colors, 'avatarWidthCookie':avatarWidthCookie, 'nameFontCookie':nameFontCookie}));
+  localStorage.setItem('amonguscss', JSON.stringify(save));
+  generateTestUri();
 }
 
 function generateTestUri() {
   let sortNames = [];
   for (let k in colors) {
-      colors[k] = document.getElementById('discord-id-' + k).value || '000000000000000000';
+      // colors[k] = document.getElementById('discord-id-' + k).value || '000000000000000000';
       if (colors[k] != '000000000000000000') {
           sortNames.push({ 'name': discordIDs[colors[k]], 'color': k, 'id': colors[k], });
       }
@@ -101,5 +111,5 @@ window.onload = function() {
   setSelectCookie();
   setCSS();
   generateCSS();
-  generateTestUri();
+  // generateTestUri();
 }

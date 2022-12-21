@@ -3,7 +3,7 @@
 // URIクエリ取得
 const searchParams = new URLSearchParams(window.location.search);
 var users = [];
-console.log(window.location.search)
+// console.log(window.location.search)
 for (let i = 0; i < 15; i++) {
     // print(searchParams.has('id'+i))
     // print(searchParams.has('nm'+i))
@@ -72,8 +72,22 @@ function setSpeak() {
 };
 
 
+function setCss() {
+    let css = localStorage.getItem('amonguscss_sample_css');
+    // console.log(css)
+    css = css.replace(/@charset \\UTF-8\\;\\r\\n/g, '');
+    css = css.replace(/\"/g, '');
+    css = css.replace(/\\r/g, '');
+    css = css.replace(/\\n/g, '');
+    // console.log(css)
+    let style = document.createElement('style');
+    style.innerHTML = css;
+    document.getElementsByTagName('head')[0].insertAdjacentElement('beforeend', style);
+}
+
 // 起動
 window.onload = function() {
+    setCss();
     createUserElements();
     setSpeak();
 };
