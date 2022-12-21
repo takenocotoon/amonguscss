@@ -107,12 +107,12 @@ li[class*='Voice_voiceState_']:nth-child(even) div[class*='Voice_user_'] span{
         textarea.innerHTML = data;
         textarea.select();
         textarea.setSelectionRange(0, 999999);
-        if (window.clipboardData) {
-            window.clipboardData.setData("Text" , data);
-        } else {
-            navigator.clipboard.writeText(data);
-        }
-        // document.execCommand('copy');
+        // if (window.clipboardData) {
+        //     window.clipboardData.setData("Text" , data);
+        // } else {
+        //     navigator.clipboard.writeText(data);
+        // }
+        document.execCommand('copy');
         localStorage.setItem('amonguscss_sample_css', JSON.stringify(data));
         generateTestUri();
         // Cookies.set('colors', colors, { expires: 365 });
@@ -209,12 +209,12 @@ function copyCSS() {
     let textarea = document.getElementById('css-output');
     textarea.select();
     textarea.setSelectionRange(0, 999999);
-    if (window.clipboardData) {
-        window.clipboardData.setData("Text" , textarea.innerText);
-    } else {
-        navigator.clipboard.writeText(textarea.innerText);
-    }
-    // document.execCommand('copy');
+    // if (window.clipboardData) {
+    //     window.clipboardData.setData("Text" , textarea.innerText);
+    // } else {
+    //     navigator.clipboard.writeText(textarea.innerText);
+    // }
+    document.execCommand('copy');
 }
 
 // function copyHtUsCSS() {
@@ -227,12 +227,12 @@ function copyCSS() {
 function copyTestUri() {
     let textarea = document.getElementById('test-url-output');
     textarea.select();
-    if (window.clipboardData) {
-        window.clipboardData.setData("Text" , textarea.value);
-    } else {
-        navigator.clipboard.writeText(textarea.value);
-    }
-    // document.execCommand('copy');
+    // if (window.clipboardData) {
+    //     window.clipboardData.setData("Text" , textarea.value);
+    // } else {
+    //     navigator.clipboard.writeText(textarea.value);
+    // }
+    document.execCommand('copy');
 }
 
 window.onload = function () {
