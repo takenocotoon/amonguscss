@@ -4,12 +4,9 @@
 let discordIDs = {};
 let colors = { 'blue': '', 'purple': '', 'red': '', 'pink': '', 'orange': '', 'yellow': '', 'lime': '', 'green': '', 'cyan': '', 'white': '', 'black': '', 'brown': '', 'tan': '', 'coral': '', 'banana': '', 'rose': '', 'gray': '', 'maroon': '', };
 let options = {'alignment':'', 'name_y':'', 'name_size':'', 'name_font':'', 'display_icon':'', }
-let save = {}
-try {
-  save = JSON.parse(localStorage.getItem('amonguscss'));
-} catch (error) {
-  save = {'discordIDs':discordIDs, 'colors':colors, 'options':options, }
-}
+let save = JSON.parse(localStorage.getItem('amonguscss'));
+if (!save) save = {'discordIDs':discordIDs, 'colors':colors, 'options':options, }
+
 discordIDs = 'discordIDs' in save ? save['discordIDs'] : discordIDs;
 colors     = 'colors'     in save ? save['colors']     : colors;
 if ('options' in save) {
@@ -160,7 +157,7 @@ function restore() {
       else if (avatarWidthCookie == '10') options['alignment'] = 'left-wide';
       let nameFontCookie = backup['nameFontCookie'];
       if (nameFontCookie == 'none') options['name_y'] = 'none';
-      else options['name_font'] = nameFontCookie;
+      else if (nameFontCookie != 'フォント') options['name_font'] = nameFontCookie;
       save['options'] = options;
     }
 

@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Hachi+Maru+Pop&family=Noto+Sans+JP:wght@400;900&family=Reggae+One&family=Stick&family=Yusei+Magic&display=swap');
 :root {
     --avatar-width: /*avatar-width*/;
-    --avatar-height: /*avatar-height*/; /* アイコンが横長になるのが嫌な場合、avatar-width と avatar-height を px指定で同じ値にして下さい。*/
+    --avatar-height: /*avatar-height*/; /* アイコンを横長にしたくない時はavatar-width と avatar-height を px指定で同じ値にして下さい。*/
     --display-height: /*display-height*/;
     --user-name-y: /*user-name-y*/;
     --user-name-size: /*user-name-size*/;

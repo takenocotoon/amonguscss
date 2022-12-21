@@ -16,6 +16,9 @@ if (users.length < 1){
         users.push({'id':('000000000000000000'+i).slice(-18), 'name':'ダミー'+i});
     }
 };
+
+let is_sample = false;
+if (searchParams.has('sample')) is_sample = true;
 // users.sort((a, b) => a.name > b.name);
 
 
@@ -74,6 +77,7 @@ function setSpeak() {
 
 function setCss() {
     let css = localStorage.getItem('amonguscss_sample_css');
+    if (!is_sample || !css) return;
     // console.log(css)
     css = css.replace(/@charset \\UTF-8\\;\\r\\n/g, '');
     css = css.replace(/\"/g, '');

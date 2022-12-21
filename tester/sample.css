@@ -3,5 +3,10 @@
 body {
     margin-top: -300px !important;
     height: 300px !important;
+    width: 840px !important;
+    overflow: hidden;
+}
+
+ul {
     width: 1920px !important;
 }

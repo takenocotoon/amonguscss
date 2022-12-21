@@ -202,7 +202,7 @@ function generateTestUri() {
 
     
     let sample_object = document.getElementById('css_sample_area');
-    sample_object.data = 'tester/sample.html?' + query.join('&');
+    sample_object.data = 'tester/sample.html?sample&' + query.join('&');
 }
 
 function copyCSS() {
