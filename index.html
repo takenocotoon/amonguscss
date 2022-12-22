@@ -120,10 +120,13 @@
   <select id="alignment">
     <option value="">並び方</option>
     <option value="flex">横幅いっぱいに等間隔</option>
+    <option value="left">左詰め</option>
     <option value="left-wide">間隔広め左詰め</option>
     <option value="left-narrow">間隔狭め左詰め</option>
+    <option value="right">右詰め</option>
     <option value="right-wide">間隔広め右詰め</option>
     <option value="right-narrow">間隔狭め右詰め</option>
+    <option value="center">中央</option>
     <option value="center-wide">間隔広め中央</option>
     <option value="center-narrow">間隔狭め中央</option>
   </select>
@@ -170,7 +173,6 @@
     テスト用ページ<br>
     生成したCSSとセットで使えます。配信ソフトに読み込ませてCSSのテストや位置調整にお使い下さい。<br>
     15人まで対応しています。<br>
-    ※こちらはURL内に上で設定したIDと名前を含みます。データはページ生成のためブラウザ側で利用されます。<br>
     ※ユーザーアイコンにサンプル用としていらすとやさんの画像を使っています。<br>
   </div>
   <input type="text" id="test-url-output"><br>
@@ -179,7 +181,7 @@
 <div class="css-output-container">
   <div class="info">
   </div>
-  <object id="css_sample_area" data="./tester/sample.html" type="text/html"></object><br class="cl">
+  <object id="css_sample_area" data="./tester/?sample" type="text/html"></object><br class="cl">
 </div>
 <div class="css-output-container">
   <div class="info">

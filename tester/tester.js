@@ -17,8 +17,12 @@ if (users.length < 1){
     }
 };
 
-let is_sample = false;
-if (searchParams.has('sample')) is_sample = true;
+let is_sample = '';
+if (searchParams.has('sample')) {
+    if (searchParams.get('sample')=='my_custom') is_sample = 'my_custom';
+    else is_sample = 'on';
+}
+    
 // users.sort((a, b) => a.name > b.name);
 
 
@@ -39,7 +43,7 @@ function createUserElements() {
         let span = document.createElement('span');
         span.className = 'Voice_name__TALd9';
         span.style = 'color: rgb(255, 255, 255); font-size: 14px; background-color: rgba(30, 33, 36, 0.95);';
-        span.innerText = users[i]['name'];
+        span.textContent = users[i]['name'];
         div.appendChild(span);
         li.appendChild(div);
 
@@ -77,16 +81,27 @@ function setSpeak() {
 
 function setCss() {
     let css = localStorage.getItem('amonguscss_sample_css');
+    console.log(is_sample);
     if (!is_sample || !css) return;
+    console.log(css)
+    // css = css.replace(/@charset \\UTF-8\\;\\r\\n/g, '');
+    // css = css.replace(/\"/g, '');
+    // css = css.replace(/\\r/g, '');
+    // css = css.replace(/\\n/g, '');
     // console.log(css)
-    css = css.replace(/@charset \\UTF-8\\;\\r\\n/g, '');
-    css = css.replace(/\"/g, '');
-    css = css.replace(/\\r/g, '');
-    css = css.replace(/\\n/g, '');
-    // console.log(css)
+
+    let head = document.getElementsByTagName('head')[0];
+
+    if (is_sample == 'on') {
+        let link = document.createElement('link');
+        link.href = "./sample.css";
+        link.rel = "stylesheet"
+        head.appendChild(link);
+    }
     let style = document.createElement('style');
-    style.innerHTML = css;
-    document.getElementsByTagName('head')[0].insertAdjacentElement('beforeend', style);
+    style.setAttribute('type', 'text/css');
+    style.textContent = css;
+    head.appendChild(style);
 }
 
 // 起動

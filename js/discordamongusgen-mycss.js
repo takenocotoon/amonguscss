@@ -48,6 +48,8 @@ function generateCSS() {
   textarea.setSelectionRange(0, 999999);
   document.execCommand('copy');
   // Cookies.set('colors', colors, { expires: 365});
+  
+  localStorage.setItem('amonguscss_sample_css', data);
   localStorage.setItem('amonguscss', JSON.stringify(save));
   generateTestUri();
 }
@@ -75,6 +77,8 @@ function generateTestUri() {
 
   let input_area = document.getElementById('test-url-output');
   input_area.value = uri;
+  let sample_object = document.getElementById('css_sample_area');
+  sample_object.data = 'tester/?sample=my_custom&' + query.join('&');
 }
 
 function copyCSS() {

@@ -50,25 +50,19 @@ function generateCSS() {
 
         // 並び方
         let alignment_args = options['alignment'].split('-')
-        if (alignment_args.length < 2) {
-            data = data.replace('/*alignment*/', 'space-around');
-            data = data.replace('/*avatar-width*/', '100%');
-        } else {
-            if      (alignment_args[0] == 'left')   data = data.replace('/*alignment*/', 'flex-start');
-            else if (alignment_args[0] == 'right')  data = data.replace('/*alignment*/', 'flex-end');
-            else if (alignment_args[0] == 'center') data = data.replace('/*alignment*/', 'center');
-            else data = data.replace('/*alignment*/', 'space-around');
-            if        (alignment_args[1] == 'wide') {
-                data = data.replace('/*avatar-width*/', avatarMargin10);
-            } else if (alignment_args[1] == 'narrow') {
-                data = data.replace('/*avatar-width*/', avatarMargin15);
-            } else {
-                data = data.replace('/*avatar-width*/', '100%');
-            }
-        }
-        if (options['display_icon'] != 'on') data = data.replace('/*avatar-height*/', avatarMargin15);
-        else if (alignment_args.length > 1 && alignment_args[1] == 'wide') data = data.replace('/*avatar-height*/', avatarMargin10);
-        else data = data.replace('/*avatar-height*/', avatarMargin15);
+        if      (alignment_args[0] == 'left')   data = data.replace('/*alignment*/', 'flex-start');
+        else if (alignment_args[0] == 'right')  data = data.replace('/*alignment*/', 'flex-end');
+        else if (alignment_args[0] == 'center') data = data.replace('/*alignment*/', 'center');
+        else                                    data = data.replace('/*alignment*/', 'space-around');
+        if (alignment_args.length > 1) {
+            if (alignment_args[1] == 'narrow')  data = data.replace('/*avatar-width*/', avatarMargin15);
+            else                                data = data.replace('/*avatar-width*/', avatarMargin10);
+        } else if (alignment_args[0] == 'flex') data = data.replace('/*avatar-width*/', '100%');
+        else                                    data = data.replace('/*avatar-width*/', '150px');
+            
+        if (options['display_icon'] != 'on')  data = data.replace('/*avatar-height*/', avatarMargin15);
+        else if (alignment_args[0] != 'flex') data = data.replace('/*avatar-height*/', 'var(--avatar-width)');
+        else                                  data = data.replace('/*avatar-height*/', '150px');
 
         // 名前の位置
         let name_y_args = options['name_y'].split('-')
@@ -113,7 +107,7 @@ li[class*='Voice_voiceState_']:nth-child(even) div[class*='Voice_user_'] span{
         //     navigator.clipboard.writeText(data);
         // }
         document.execCommand('copy');
-        localStorage.setItem('amonguscss_sample_css', JSON.stringify(data));
+        localStorage.setItem('amonguscss_sample_css', data);
         generateTestUri();
         // Cookies.set('colors', colors, { expires: 365 });
         // Cookies.set('avatarWidthCookie', memnum, { expires: 365 });
@@ -202,7 +196,7 @@ function generateTestUri() {
 
     
     let sample_object = document.getElementById('css_sample_area');
-    sample_object.data = 'tester/sample.html?sample&' + query.join('&');
+    sample_object.data = 'tester/?sample&' + query.join('&');
 }
 
 function copyCSS() {
