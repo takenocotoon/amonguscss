@@ -1,16 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Hachi+Maru+Pop&family=Noto+Sans+JP:wght@400;900&family=Reggae+One&family=Stick&family=Yusei+Magic&display=swap');
-
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=DotGothic16&family=Hachi+Maru+Pop&family=Noto+Sans+JP:wght@400;900&family=Reggae+One&family=Stick&family=Yusei+Magic&display=swap");
 :root {
-  --bgcolor: #f7f7e8;
-  --txtcolor: #557174;
-  --input-bgcolor: #c7cfb7;
-  --input-txtcolor: #557174;
-  --submit-bgcolor: #9dad7f;
-  --submit-txtcolor: #f7f7e8;
-  --placeholder-color: #f7f7e8;
+  --main-bgcolor: #f7f7e8;
+  --main-txtcolor: #557174;
+  --primary-bgcolor: #c7cfb7;
+  --primary-txtcolor: #557174;
+  --input-placeholder-color: #f7f7e8;
+  --secondary-bgcolor: #9dad7f;
+  --secondary-txtcolor:#f7f7e8;
   --error-bgcolor: #ee9595;
   --error-txtcolor: #f7f7e8;
-
   --black: #3E464D;
   --black-d: #1D1E25;
   --blue: #204399;
@@ -49,299 +48,325 @@
   --maroon-d: #400D19;
 }
 
+/* === Base === */
 body {
-	margin: 0;
-	background: var(--bgcolor);
-	color: var(--txtcolor);
-	font-size: 12pt;
+  margin: 0;
+  background: var(--main-bgcolor);
+  color: var(--main-txtcolor);
+  font-size: 12pt;
 }
 
-.cl {
-  clear: both;
-}
-.icon {
-	width: 13pt;
-	height: 13pt;
-	vertical-align: middle;
-}
-
-
-/* フォーム */
-input, textarea, button, select {
-  width: calc(100% - 3rem);
-  max-width: 100%;
-  border: 2px solid var(--bgcolor);
-  margin: 0.5rem 0.5rem;
-  padding: 0.5rem 1rem;
-  border-radius: 0.3rem;
-  background: var(--input-bgcolor);
-  color: var(--input-txtcolor);
-}
-button {
-  background: var(--submit-bgcolor);
-  color: var(--submit-txtcolor);
-  width: auto;
-}
-select {
-  width: calc(81%);
-}
-textarea {
-  width: 90%;
-  height: 10rem;
-}
-.mini {
-  width: 35%;
-}
-
-::placeholder {
-  color: var(--placeholder-color);
-}
-option:focus {
-  background: var(--txtcolor);
-  color: var(--bgcolor);
-}
-input[type="text"]:focus {
-  border: 2px solid var(--submit-bgcolor);
-  outline: 0;
-}
-button:focus {
-  background: var(--txtcolor);
-  border: 2px solid var(--txtcolor);
-  outline: 0;
-}
-.error {
-  background: var(--error-bgcolor);
-}
-
-
-/* ブロック */
-#container {
-	width: 80%;
-	max-width: 900px;
-	margin: 0 auto;
+#l-main-container {
+  width: 80%;
+  max-width: 900px;
+  margin: 0 auto;
   overflow-x: hidden;
 }
 
-.title-container {
-  position: relative;
-  background: var(--input-bgcolor);
-  color: #FFF;
-  padding: 10px;
-  text-align: right;
-  font-weight: bold;
+/* === Objects === */
+/* 回り込み解除 */
+.cl {
+  clear: both;
 }
-.form-container {
+
+/* 絵文字 */
+.c-icon {
+  width: 1rem;
+  height: 1rem;
+  vertical-align: middle;
+}
+
+/* 外部リンク */
+.c-blank-link a[target=_blank]:after {
+  content: url("./img/target8.png");
+  margin: 0px 5px;
+}
+
+/* 下吹き出し */
+.p-section {
+  --bgcolor: var(--main-bgcolor);
   position: relative;
-  background: var(--bgcolor);
   padding: 30px;
-  border-width: 0 2px 2px 2px;
-  border-style: solid;
-  border-color: var(--input-bgcolor);
+  background: var(--bgcolor);
+  text-align: right;
 }
-.form-container:after {
+.p-section.p-balloon::after {
   position: absolute;
   top: 100%;
   left: 50%;
   width: 0;
   height: 0;
-  content: '';
+  content: "";
   border-width: 10px 10px 0;
   border-style: solid;
   border-color: var(--bgcolor) transparent transparent;
   z-index: 1;
 }
 
-.color-form {
-  position: relative;
-  background: var(--input-bgcolor);
-  padding: 30px;
-  text-align: right;
+/* エラーボックス */
+.p-box-error {
+  background: var(--error-bgcolor);
 }
-.color-form:after {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  content: '';
-  border-width: 10px 10px 0;
+
+/* フォーム */
+input, textarea, button, select {
+  width: calc(100% - 3rem);
+  max-width: 100%;
+  margin: 0.5rem 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid rgba(0, 0, 0, 0);
+  border-radius: 0.3rem;
+  background: var(--primary-bgcolor);
+  color: var(--primary-txtcolor);
+}
+input.p-form-error, textarea.p-form-error, button.p-form-error, select.p-form-error {
+  border: 2px solid var(--error-bgcolor);
+}
+
+input[type=text]:focus {
+  border: 2px solid var(--secondary-bgcolor);
+  outline: 0;
+}
+input[type=text].p-input-mini {
+  width: 35%;
+}
+
+button {
+  background: var(--secondary-bgcolor);
+  color: var(--secondary-txtcolor);
+  width: auto;
+}
+button:focus {
+  background: var(--main-txtcolor);
+  border: 2px solid var(--main-txtcolor);
+  outline: 0;
+}
+
+select {
+  width: 81%;
+}
+select:focus {
+  border: 2px solid var(--main-txtcolor);
+  outline: 0;
+}
+
+textarea {
+  width: 90%;
+  height: 10rem;
+}
+textarea:focus {
+  border: 2px solid var(--secondary-bgcolor);
+  outline: 0;
+}
+
+::-moz-placeholder {
+  color: var(--input-placeholder-color);
+}
+
+:-ms-input-placeholder {
+  color: var(--input-placeholder-color);
+}
+
+::placeholder {
+  color: var(--input-placeholder-color);
+}
+
+/* 注釈 */
+.p-info {
+  font-size: 0.8rem;
+  text-align: left;
+  padding: 0 3em;
+}
+.p-info a {
+  color: var(--primary-bgcolor);
+}
+
+/* === header === */
+h1 {
+  position: relative;
+  padding: 10px;
+  margin: 0;
+  background: var(--primary-bgcolor);
+  color: var(--main-txtcolor);
+  font-size: 1.2rem;
+  text-align: right;
+  font-weight: bold;
+}
+
+/* === contents === */
+h2 {
+  margin: 0 0 1rem 0;
+  font-size: 1rem;
+  text-align: left;
+}
+h2::before {
+  content: "▼ ";
+}
+
+/* 入力フォーム */
+.l-form {
+  --bgcolor: var(--main-bgcolor);
+  border-color: var(--primary-bgcolor);
+  border-width: 0 2px 2px 2px;
   border-style: solid;
-  border-color: var(--input-bgcolor) transparent transparent;
+  text-align: justify;
 }
-
-.css-output-container {
-  text-align: right;
-  background: var(--txtcolor);
-  color: var(--bgcolor);
-  padding: 30px 30px 10px 30px;
-  border-width: 0 0 2px 0;
-  border-style: solid;
-  border-color: var(--input-bgcolor);
-}
-.reference-container {
+.l-form_info-discord-id {
   position: relative;
-  background: var(--input-bgcolor);
-  padding: 20px;
-  font-size: 10pt;
-}
-.reference-container a {
-  color: var(--txtcolor);
-}
-h3 {
-  font-size: 10pt;
-  margin: 0 0 0 -10px;
-}
-.footer {
-  text-align: right;
-  margin: 5px;
-  font-size: 10pt;
-}
-
-.css-input-container {
-  text-align: right;
-  background: var(--txtcolor);
-  color: var(--bgcolor);
-  padding: 30px 30px 10px 30px;
-  border-width: 0;
-  position: relative;
-}
-.css-input-container:after {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  content: '';
-  border-width: 10px 10px 0;
-  border-style: solid;
-  border-color: var(--txtcolor) transparent transparent;
-  z-index: 1;
-}
-
-
-/* 入力エリア */
-.info-discordid {
-  position: relative;
-  font-size: 10pt;
-  background: #FFF;
-  border-radius: 0.5rem;
   margin: 0 20px 2px 100px;
   padding: 10px;
-  border: solid 1px var(--txtcolor);
+  background: #FFF;
+  border-radius: 0.5rem;
+  border: solid 1px var(--main-txtcolor);
+  font-size: 10pt;
 }
-.info-discordid:before {
+.l-form_info-discord-id::before {
   position: absolute;
   bottom: calc(100% + 1px);
   left: 50%;
   width: 0;
   height: 0;
-  content: '';
+  content: "";
   border-width: 0 5px 5px;
   border-style: solid;
-  border-color: transparent transparent var(--txtcolor);
+  border-color: transparent transparent var(--main-txtcolor);
 }
-.info-discordid:after {
+.l-form_info-discord-id::after {
   position: absolute;
   bottom: 100%;
   left: 50%;
   width: 0;
   height: 0;
-  content: '';
+  content: "";
   border-width: 0 5px 5px;
   border-style: solid;
   border-color: transparent transparent #FFF;
 }
 
-
-/* 色選択エリア */
-.color-form button, .color-form select {
-  border: 2px solid var(--input-bgcolor);
+/* 色選択フォーム */
+.l-form-color {
+  --bgcolor: var(--primary-bgcolor);
 }
-.color-form select {
+.l-form-color select {
   width: 30.6%;
-  color: var(--bgcolor)
+  background: var(--secondary-bgcolor);
+  color: var(--secondary-txtcolor);
 }
-#discord-id-blue {
+
+#is_int_gen-css_discord-id-blue {
   background: var(--blue);
 }
-#discord-id-purple {
+
+#is_int_gen-css_discord-id-purple {
   background: var(--purple);
 }
-#discord-id-red {
+
+#is_int_gen-css_discord-id-red {
   background: var(--red);
 }
-#discord-id-pink {
+
+#is_int_gen-css_discord-id-pink {
   background: var(--pink);
 }
-#discord-id-orange {
+
+#is_int_gen-css_discord-id-orange {
   background: var(--orange);
 }
-#discord-id-yellow {
+
+#is_int_gen-css_discord-id-yellow {
   background: var(--yellow);
-  color: var(--txtcolor);
+  color: var(--main-txtcolor);
 }
-#discord-id-lime {
+
+#is_int_gen-css_discord-id-lime {
   background: var(--lime);
-  color: var(--txtcolor);
+  color: var(--main-txtcolor);
 }
-#discord-id-green {
+
+#is_int_gen-css_discord-id-green {
   background: var(--green);
 }
-#discord-id-cyan {
+
+#is_int_gen-css_discord-id-cyan {
   background: var(--cyan);
-  color: var(--txtcolor);
+  color: var(--main-txtcolor);
 }
-#discord-id-white {
+
+#is_int_gen-css_discord-id-white {
   background: var(--white);
-  color: var(--txtcolor);
+  color: var(--main-txtcolor);
 }
-#discord-id-black {
+
+#is_int_gen-css_discord-id-black {
   background: var(--black);
 }
-#discord-id-brown {
+
+#is_int_gen-css_discord-id-brown {
   background: var(--brown);
 }
-#discord-id-tan {
+
+#is_int_gen-css_discord-id-tan {
   background: var(--tan);
 }
-#discord-id-coral {
+
+#is_int_gen-css_discord-id-coral {
   background: var(--coral);
 }
-#discord-id-banana {
+
+#is_int_gen-css_discord-id-banana {
   background: var(--banana);
-  color: var(--txtcolor);
+  color: var(--main-txtcolor);
 }
-#discord-id-rose {
+
+#is_int_gen-css_discord-id-rose {
   background: var(--rose);
-  color: var(--txtcolor);
+  color: var(--main-txtcolor);
 }
-#discord-id-gray {
+
+#is_int_gen-css_discord-id-gray {
   background: var(--gray);
 }
-#discord-id-maroon {
+
+#is_int_gen-css_discord-id-maroon {
   background: var(--maroon);
 }
-.color-form select {
-  background: var(--submit-bgcolor);
-  color: var(--submit-txtcolor);
+
+/* 結果ゾーン */
+.l-secondary-form {
+  --bgcolor: var(--main-txtcolor);
+  padding: 30px 30px 10px 30px;
+  border-width: 0 0 2px 0;
+  border-style: solid;
+  border-color: var(--primary-bgcolor);
+  color: var(--main-bgcolor);
 }
 
-/* CSS生成エリア */
-.info {
-  font-size: 10.5pt;
-  text-align: left;
-  padding: 0 3em;
-}
-.info a {
-  color: var(--input-bgcolor);
-}
-
-.info a[target="_blank"]:after, .reference-container a[target="_blank"]:after{
-  content:url('./img/target8.png');
-  margin:0px 5px;
-}
-
-#css_sample_area {
+#is_obj_css-sample_output {
   width: 100%;
-  height: 300px;
+  height: 320px;
+}
+
+/* フッター */
+h3 {
+  font-size: 0.8rem;
+  margin: 0 0 0 -10px;
+}
+h3::before {
+  content: "○";
+}
+
+.l-footer-primary {
+  position: relative;
+  background: var(--primary-bgcolor);
+  padding: 20px;
+  font-size: 0.8rem;
+}
+.l-footer-primary a {
+  color: var(--main-txtcolor);
+}
+
+.l-footer {
+  text-align: right;
+  margin: 5px;
+  font-size: 0.8rem;
 }

@@ -1,12 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Hachi+Maru+Pop&family=Noto+Sans+JP:wght@400;900&family=Reggae+One&family=Stick&family=Yusei+Magic&display=swap');
 
 body {
-    margin-top: -300px !important;
-    height: 300px !important;
-    width: 840px !important;
-    overflow: hidden;
+  margin-top: -300px !important;
+  height: 320px !important;
+  width: 840px !important;
+  overflow-x: scroll !important;
+  overflow-y: hidden;
+  scrollbar-color: #9dad7f #f7f7e8;
+  scrollbar-width: thin;
+}
+body::-webkit-scrollbar-thumb {
+  border: 5px solid transparent;
+  border-radius: 100px;
+  background-color: #9dad7f;
+  background-clip: content-box;
+}
+body::-webkit-scrollbar {
+  width: 20px;
+}
+body::-webkit-scrollbar-track {
+  background-color: #f7f7e8;
+  border-radius: 100px;
 }
 
 ul {
-    width: 1920px !important;
+  width: 1920px !important;
 }

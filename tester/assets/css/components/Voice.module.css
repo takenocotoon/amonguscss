@@ -1,0 +1,53 @@
+.voiceContainer {
+  font-family: gg sans;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: white;
+}
+
+.voiceStates {
+  list-style-type: none;
+  padding-left: 15px;
+}
+
+.voiceState {
+  height: 50px;
+  margin-bottom: 8px;
+}
+
+.avatar {
+  height: 50px;
+  width: 50px;
+  border: 3px solid transparent;
+  border-radius: 50%;
+  float: left;
+  margin-right: 8px;
+}
+
+.avatarSpeaking {
+  border-color: var(--status-green);
+}
+
+.user {
+  padding-top: 18px;
+}
+
+.name {
+  background-color: var(--guilds-grey);
+  border-radius: 3px;
+  padding: 4px 6px;
+}
+
+.smallAvatar {
+  height: 40px;
+}
+
+.smallAvatarAvatar {
+  height: 40px;
+  width: 40px;
+}
+
+.smallAvatarUser {
+  padding-top: 12px;
+}/*# sourceMappingURL=Voice.module.css.map */

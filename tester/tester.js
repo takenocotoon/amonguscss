@@ -12,8 +12,8 @@ for (let i = 0; i < 15; i++) {
     }
 };
 if (users.length < 1){
-    for (let i = 0; i < 10; i++) {
-        users.push({'id':('000000000000000000'+i).slice(-18), 'name':'ダミー'+i});
+    for (let i = 1; i < 11; i++) {
+        users.push({'id':('000000000000000000'+i).slice(-18), 'name':'ダミー'+(i)});
     }
 };
 
@@ -81,9 +81,9 @@ function setSpeak() {
 
 function setCss() {
     let css = localStorage.getItem('amonguscss_sample_css');
-    console.log(is_sample);
+    // console.log(is_sample);
     if (!is_sample || !css) return;
-    console.log(css)
+    // console.log(css)
     // css = css.replace(/@charset \\UTF-8\\;\\r\\n/g, '');
     // css = css.replace(/\"/g, '');
     // css = css.replace(/\\r/g, '');

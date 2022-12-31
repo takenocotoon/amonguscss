@@ -4,34 +4,54 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Discord StreamKit Overlay Among us用ぴょこぴょこカスタムCSSジェネレーター</title>
+    <title>Among us用カスタムCSSの書き換え補助ツール</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="og:title" content="Discord StreamKit Overlay Among us用ぴょこぴょこカスタムCSSジェネレーター">
-    <meta name="description"    content="Discord StreamKitのAmong Us用カスタムCSSを作るツールです。喋るとクルーがぴょこぴょこします。">
-    <meta name="og:description" content="Discord StreamKitのAmong Us用カスタムCSSを作るツールです。喋るとクルーがぴょこぴょこします。">
+    <meta name="og:title" content="Among us用カスタムCSSの書き換え補助ツール">
+    <meta name="description"    content="IDごとに色を指定するタイプのAmong us用カスタムCSSの書き換えをお手伝いするツールです。">
+    <meta name="og:description" content="IDごとに色を指定するタイプのAmong us用カスタムCSSの書き換えをお手伝いするツールです。">
     <meta property="og:locale" content="ja_JP">
     <meta property="og:type" content="website">
-    <link rel="canonical"      href="https://takenocotoon.github.io/amonguscss/">
+    <link rel="canonical"      href="https://takenocotoon.github.io/amonguscss/mycustom/">
     <link rel="INDEX" href="./">
     <link rel="HELP" href="https://github.com/takenocotoon/amonguscss/blob/main/README.md">
-    <meta property="og:url" content="https://takenocotoon.github.io/amonguscss/">
+    <meta property="og:url" content="https://takenocotoon.github.io/amonguscss/mycustom/">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@takenocotoon">
     <meta name="theme-color" content="#9dad7f">
-    <meta name="og:image"          content="https://takenocotoon.github.io/amonguscss/icon.png">
-    <link rel="icon" type="image/png" href="./favicon.png">
+    <meta name="og:image"          content="https://takenocotoon.github.io/amonguscss/mycustom/icon.png">
+    <link rel="icon" type="image/png" href="../favicon.png">
     <link rel="apple-touch-icon"      href="./icon.png">
     <link rel="manifest" href="./manifest.json">
-    <link rel="stylesheet" href="./index.css?221231082910">
-    <script src="./js/gen_css.js?221231082910"></script>
-    <script src="./js/amonguscapture.js?221231082910"></script>
-    <script src="./js/main.js?221231082910"></script>
+    <link rel="stylesheet" href="../index.css?221231093100">
+    <script src="../js/gen_mycss.js?221231093100"></script>
+    <script src="../js/amonguscapture.js?221231093100"></script>
+    <script src="../js/main.js?221231093100"></script>
 </head>
 
 <body>
     <div id="l-main-container">
         <h1 class="l-title">
-            Discord StreamKit Overlay Among us用ぴょこぴょこカスタムCSSジェネレーター        </h1>
+            Among us用カスタムCSSの書き換え補助ツール        </h1>
+
+        <div class="l-secondary-form p-section p-balloon">
+            <div class="p-info">
+                Among usの色毎にDiscord IDを指定するタイプのカスタムCSSの書き換えをお手伝いするツールです。<br>
+                「Input」にCSSを入力し下部の [Generate] ボタンを押すと、<br>
+                「/*色名英語小文字ID*/」を対応するIDに書き換え、「Output」に出力します。<br>
+                <p>
+                    例）<br>
+                    img[src*="/*blackID*/"] → img[src*="123456789012345678"]
+                </p>
+                <p>
+                    変換タグ一覧）<br>
+                    /*blueID*/ /*purpleID*/ /*redID*/ /*pinkID*/ /*orangeID*/ /*yellowID*/ /*limeID*/ /*greenID*/ /*cyanID*/ /*whiteID*/ /*blackID*/ /*brownID*/ /*tanID*/ /*coralID*/ /*bananaID*/ /*roseID*/ /*grayID*/ /*maroonID*/ /*noneID*/
+                </p>
+            </div>
+            <h2>Input</h2>
+            <textarea id="is_str_css-input"></textarea>
+            <button onclick="amongUsCss_genCss.gen_css()">Generate CSS</button>
+            <br class="cl">
+        </div>
 
         <div class="l-form p-section p-balloon">
             <input id="is_str_set-discord-id_name" type="text" placeholder="Discord Name" class="p-input-mini" tabindex="1" accesskey="n">
@@ -103,65 +123,17 @@
             <select id="is_int_gen-css_discord-id-maroon">
                 <option value="000000000000000000">Maroon</option>
             </select>
-            <br class="cl">
-            <select id="is_str_gen-css_name_y">
-                <option value="">名前の位置</option>
-                <option value="none">文字なし</option>
-                <option value="crew">クルーの目元</option>
-                <option value="crew-odd">クルーの目元 奇数ずらす</option>
-                <option value="icon">アイコン（クルーの足元）</option>
-                <option value="icon-odd">アイコン（クルーの足元） 奇数ずらす</option>
-            </select>
-            <select id="is_str_gen-css_name_size">
-                <option value="">名前の大きさ</option>
-                <option value="25px">デフォルト</option>
-                <option value="12px">極小</option>
-                <option value="20px">小さめ</option>
-                <option value="30px">大きめ</option>
-            </select>
-            <select id="is_str_gen-css_name_font">
-                <option value="">フォント</option>
-                <option value="Noto Sans JP">Noto Sans JP (すっきり)</option>
-                <option value="Yusei Magic">Yusei Magic (油性ペン)</option>
-                <option value="Hachi Maru Pop">Hachi Maru Pop (女の子)</option>
-                <option value="DotGothic16">DotGothic16 (ゲーム風ドット)</option>
-            </select>
-            <select id="is_str_gen-css_alignment">
-                <option value="">並び方</option>
-                <option value="flex">横幅いっぱいに等間隔</option>
-                <option value="left">左詰め</option>
-                <option value="left-wide">間隔広め左詰め</option>
-                <option value="left-narrow">間隔狭め左詰め</option>
-                <option value="right">右詰め</option>
-                <option value="right-wide">間隔広め右詰め</option>
-                <option value="right-narrow">間隔狭め右詰め</option>
-                <option value="center">中央</option>
-                <option value="center-wide">間隔広め中央</option>
-                <option value="center-narrow">間隔狭め中央</option>
-            </select>
-            <select id="is_str_gen-css_display_icon">
-                <option value="">アイコン</option>
-                <option value="off">表示しない</option>
-                <option value="on" >表示する</option>
-            </select>
             <select id="is_int_gen-css_discord-id-none">
-                <option value="000000000000000000">非表示にするID</option>
+                <option value="000000000000000000">None</option>
             </select>
+            <br class="cl">
             <button id="is_btn_gen-css_generate" onclick="amongUsCss_genCss.gen_css();">Set</button>
             <button id="is_btn_gen-css_reset" onclick="amongUsCss.reset_selects();">Reset</button>
             <br class="cl">
-
-            <div class="p-info">
-                ※Discordのアイコンがデフォルトのままの人は認識できません。<br>
-                ※「非表示にするID」オプション利用時は並び方を 等間隔 以外 に設定して下さい。
-            </div>
         </div>
 
         <div class="l-secondary-form p-section">
-            <h2>カスタムCSS</h2>
-            <div class="p-info c-blank-link">
-                ブラウザソース横1920px 縦600pxで作成し、画面下にぴったりくっつけて使うと良い感じにぴょこぴょこします。<br>
-            </div>
+            <h2>Output</h2>
             <textarea id="is_str_gen-css_output"></textarea>
             <button onclick="amongUsCss.copyToClipboard('is_str_gen-css_output')">Copy CSS</button>
             <br class="cl">
@@ -181,18 +153,7 @@
 
         <div class="l-secondary-form p-section">
             <h2>サンプル</h2>
-            <object id="is_obj_css-sample_output" data="./tester/?sample" type="text/html"></object><br class="cl">
-        </div>
-
-        <div class="l-secondary-form p-section">
-            <h2>バックアップのリストア</h2>
-            <div class="p-info">
-                旧ジェネレーターで生成したバックアップを読み込みます。<br>
-                <span id="is_str_restore_message"></span>
-            </div>
-            <input type="text" id="is_str_restore_input"><br>
-            <button onclick="amongUsCss.backUp.restore()">Restore</button>
-            <br class="cl">
+            <object id="is_obj_css-sample_output" data="../tester/?sample" type="text/html"></object><br class="cl">
         </div>
 
         <div class="l-secondary-form p-section">
@@ -220,35 +181,19 @@
         </div>
         <div class="l-footer-primary c-blank-link">
             <p>
-                配信などご自由にお使い下さい。常識的な範囲であれば編集改変OKです。報告やクレジット表記なども特に必要ないです。<br>
-                権利の放棄はしていませんので、自作発言や再配布はご遠慮ください。<br>
                 このページで入力したIDなどの情報はお使いのブラウザのローカルストレージに保存されます。サーバには一切の情報を送信していません。<br>
             </p>
 
             <p>
                 <h3>テスト環境</h3>
-                Windows10 / OBS Studio 28.01 / Chrome
+                Windows10 / Chrome
             </p>
 
-            <p><a href="./mycustom/">
-                <h3>Among us用カスタムCSSの書き換え補助ツール</h3>
-                自分でカスタムCSS作れる方はこちらもどうぞ。ID書き換えのお手伝いをします。
-            </a></p>
-
-            <p>
-                <h3>お布施を送る</h3>
-                <a href="https://ofuse.me/takenocotoon" target="_blank" rel="noopener">ofuse ( https://ofuse.me/takenocotoon )</a>
-            </p>
-
-            <p>
-                <h3>参考</h3>
-                <a href="https://gungeespla.github.io/obs_discord_sample/">Discord StreamKit Overlay Sample</a>
-            </p>
         </div>
 
         <div class="l-footer">
-            <a href="https://github.com/takenocotoon/amonguscss/blob/main/README.md"><img src="./img/github.svg" width="12" height="12" class="c-icon"></a>
-            <a href="https://twitter.com/i/events/1406149882310627333" target="_blank" rel="noopener"><img src="./img/twitter.svg?=1" width="12" height="12" class="c-icon"></a>
+            <a href="https://github.com/takenocotoon/amonguscss/blob/main/README.md"><img src="../img/github.svg" width="12" height="12" class="c-icon"></a>
+            <a href="https://twitter.com/i/events/1406149882310627333" target="_blank" rel="noopener"><img src="../img/twitter.svg?=1" width="12" height="12" class="c-icon"></a>
             @takenocotoon
         </div>
     </div>

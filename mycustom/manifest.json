@@ -2,27 +2,27 @@
   "name": "Among us用カスタムCSSの書き換え補助ツール",
   "short_name": "myカスタム補助ツール",
   "icons": [{
-      "src": "./mycustom_icon.png",
+      "src": "./icon.png",
       "sizes": "128x128",
       "type": "image/png"
     }, {
-      "src": "mycustom_icon.png",
+      "src": "icon.png",
       "sizes": "144x144",
       "type": "image/png"
     }, {
-      "src": "mycustom_icon.png",
+      "src": "icon.png",
       "sizes": "152x152",
       "type": "image/png"
     }, {
-      "src": "mycustom_icon.png",
+      "src": "icon.png",
       "sizes": "192x192",
       "type": "image/png"
     }, {
-      "src": "mycustom_icon.png",
+      "src": "icon.png",
       "sizes": "256x256",
       "type": "image/png"
     }],
-  "start_url": "./mycustom.html",
+  "start_url": "./",
   "display": "standalone",
   "orientation": "any"
 }
