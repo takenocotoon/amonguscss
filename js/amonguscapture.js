@@ -42,7 +42,7 @@ amongUsCap.connect = function () {
 
     //受信
     amongUsCap.websocket.onmessage = function(event) {
-        // console.log(event.data);
+        console.log(event.data);
         let eventData = JSON.parse(event.data);
         if (!('EventData' in eventData)) return;
         eventData = JSON.parse(eventData['EventData']);
