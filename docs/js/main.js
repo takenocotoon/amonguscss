@@ -25,7 +25,7 @@ amongUsCss.copyToClipboard = function(elm_id) {
 
 // ローカルストレージ読み込み
 amongUsCss.get_localStorage = function() {
-    let save = JSON.parse(localStorage.getItem('amonguscss'));
+    let save = JSON.parse(localStorage.getItem('amonguscss')) || {};
 
     // discordIDs = {DiscoedID: DiscordName};
     save['discordIDs'] = 'discordIDs' in save ? save['discordIDs'] : {};
@@ -45,6 +45,9 @@ amongUsCss.get_localStorage = function() {
         'lime': '', 'green': '', 'cyan': '', 'white': '', 'black': '', 'brown': '',
         'tan': '', 'coral': '', 'banana': '', 'rose': '', 'gray': '', 'maroon': '', 'none':'', 
     };
+    if (!save.hasOwnProperty('colors')) {
+        save.colors = colors_default;
+    }
     for (let color in colors_default) {
         if (!(color in save.colors)) save.colors[color] = '000000000000000000';
     };
